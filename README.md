@@ -10,7 +10,7 @@ A two-layer neural network implementation in Zig for MNIST digit classification 
 - ReLU activation for hidden layer
 - Softmax activation for output layer
 - Hand written backpropagation with gradient descent
-
+```
 //
 // INPUT LAYER          HIDDEN LAYER           OUTPUT LAYER
 //    (784)      →W1→      (128)       →W2→       (10)
@@ -52,7 +52,7 @@ A two-layer neural network implementation in Zig for MNIST digit classification 
 //       M × K               K × N                M × N
 //
 // Then apply: Softmax(Z2) → Predictions ( 60000 × 10)
-
+```
 
 
 

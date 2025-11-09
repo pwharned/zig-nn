@@ -1,49 +1,4 @@
-// src/main.zig
 const std = @import("std");
-//
-
-// Two-Layer Neural Network Weight Matrix Dimensions
-//
-// INPUT LAYER          HIDDEN LAYER           OUTPUT LAYER
-//    (784)      →W1→      (128)       →W2→       (10)
-//
-//
-// Sample Data:
-// ┌─────────┐
-// │ x₁      │  784 features
-// │ x₂      │  (pixels)
-// │  ⋮      │
-// │ x₇₈₄   │
-// └─────────┘
-//   60000 samples
-//
-//
-// LAYER 1: Input → Hidden
-// ─────────────────────────
-//
-//     (60000 × 784)    ×    (784 × 128)    =    (60000 × 128)
-//     ┌──────────┐         ┌─────┐              ┌─────┐
-//     │          │         │     │              │     │
-//     │  X_train │    ×    │ W1  │      =       │ Z1  │
-//     │          │         │     │              │     │
-//     └──────────┘         └─────┘              └─────┘
-//       M × K                K × N                M × N
-//
-// Then apply: ReLU(Z1) → A1 (still 60000 × 128)
-//
-//
-// LAYER 2: Hidden → Output
-// ─────────────────────────
-//
-//     (60000 × 128)    ×    (128 × 10)     =    (60000 × 10)
-//     ┌─────┐              ┌──┐                 ┌──┐
-//     │     │              │  │                 │  │
-//     │ A1  │         ×    │W2│         =       │Z2│
-//     │     │              │  │                 │  │
-//     └─────┘              └──┘                 └──┘
-//       M × K               K × N                M × N
-//
-// Then apply: Softmax(Z2) → Predictions (still 60000 × 10)
 
 //// OpenBLAS C API bindings
 extern "c" fn cblas_dgemm(
